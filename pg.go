@@ -12,7 +12,7 @@ var (
 )
 
 func init() {
-    fmt.Println("connecting")
+	fmt.Println("connecting")
 	url := os.Getenv("DATABASE_URL")
 	if len(url) == 0 {
 		fmt.Printf("error=\"must set DATABASE_URL\"\n")

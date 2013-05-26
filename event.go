@@ -1,8 +1,8 @@
 package main
 
 import (
-    "fmt"
-    "time"
+	"fmt"
+	"time"
 )
 
 type Event struct {
@@ -19,17 +19,17 @@ func getEventsByType(event_type string) ([]*Event, error) {
         where type = $1
         order by occurred_at
         `,
-        event_type)
+		event_type)
 	defer rows.Close()
 	var events []*Event
 	if err != nil {
-        fmt.Println("error=%s", err)
+		fmt.Println("error=%s", err)
 		return nil, err
 	}
 	for rows.Next() {
 		event := new(Event)
 		rows.Scan(&event.Content, &event.OccurredAt, &event.Slug, &event.Type)
 		events = append(events, event)
-    }
-    return events, nil
+	}
+	return events, nil
 }

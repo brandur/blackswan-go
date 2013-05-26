@@ -10,7 +10,7 @@ var (
 )
 
 func init() {
-    appName = "black-swan-api"
+	appName = "black-swan-api"
 }
 
 func MeasureT(t time.Time, name string) {
